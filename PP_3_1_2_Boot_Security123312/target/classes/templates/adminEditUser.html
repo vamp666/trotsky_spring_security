@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <h1>Редактирование пользователя</h1>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <form th:action="@{/admin/edit}" th:object="${user}" method="post">
+        <<p><input type="hidden" th:field="*{id}" /></p>
+
+
+        <p><label for="name">name</label></p>
+        <p><input type="text" th:field="*{name}" id="name" value="name" required></p>
+
+        <p><label for="password">password</label></p>
+        <p><input type="password" th:field="*{password}" id="password" value="password"></p>
+
+
+        <p><label for="age">age</label></p>
+        <p><input type="number" th:field="*{age}" id="age" value="age"></p>
+
+        <ul>
+            <li th:each="role : ${rolelist}">
+                <input type="checkbox" name="roles" th:field="*{roles}" th:value="${role.getName()}"
+                       th:text="${role.getName()}" th:checked="${user.getRoles().contains(role)}"/>
+            </li>
+        </ul>
+
+
+
+
+        <p>
+            <input type="submit" value="edit">
+        </p>
+
+    </form>
+    <p>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="logout"/>
+    </form>
+    </p>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <h1>Добавление пользователя</h1>
+</head>
+<body>
+<form th:action="@{/admin/add}" method="post">
+    <p><label for="name">name</label></p>
+    <p><input type="text" id="name" name="name" required></p>
+    <p><label for="password">password</label></p>
+    <p><input type="password" id="password" name="password"></p>
+    <p><label for="age">age</label></p>
+    <p><input type="number" id="age" name="age"></p>
+    <p>
+        <input type="submit" value="add">
+    </p>
+</form>
+<p>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="logout"/>
+</form>
+</p>
+</body>
+</html>
